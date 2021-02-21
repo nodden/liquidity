@@ -1,1 +1,1 @@
-# solc bindings and shit
+# solc bindings
