@@ -23,7 +23,7 @@ export interface WebsocketConfig {
 
 }
 
-export default class WebsocketConfigBuilder {
+export class WebsocketConfigBuilder {
 
     private readonly url: string;
 

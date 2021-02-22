@@ -9,9 +9,6 @@ import ServiceProvider, { HttpNetwork } from "../types/serviceprovider";
  * and allows us to make wrapping easier.
  */
 
-export function connect(sp: ServiceProvider) {
-    new Network()
-}
 
 export const Goerli : HttpNetwork = { name: "Goerli Test Network", httpUrl: "https://goerli.prylabs.net/", chainId: 5 };
 
