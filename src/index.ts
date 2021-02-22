@@ -1,8 +1,7 @@
 import liquidity from "./base/liquidity";
-import Network, { Goerli } from "./types/network";
+import { Goerli } from "./bindings/web3-impl";
 
 export {
     liquidity,
-    Network,
     Goerli
 };

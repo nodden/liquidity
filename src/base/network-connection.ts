@@ -1,4 +1,4 @@
-import Network from "../types/network";
+import Network from "../bindings/web3-impl";
 
 export default class NetworkConnection {
 
