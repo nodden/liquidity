@@ -5,6 +5,9 @@ import ServiceProvider from "../types/serviceprovider";
 import Web3 from "web3";
 import  { Goerli } from "../index";
 
+export const ERROR = function(message?: any, ...optionalParams: any[]) { console.error("( ERROR ) \u26D4 ", message, optionalParams); }
+export const LOG = function(message?: any, ...optionalParams: any[]) { console.log("( LOG ) \u2728 ", message, optionalParams); }
+
 interface ity {
 
     getServiceProvider(identifier: string, httpUrl: string) : ServiceProvider;

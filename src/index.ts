@@ -1,4 +1,5 @@
 import liquidity from "./base/liquidity";
+import { ERROR, LOG } from "./base/liquidity"
 import ServiceProvider from "./types/serviceprovider";
 
 import { ContractEntry, BasicEntry } from "./types/contract-entry";
@@ -44,6 +45,9 @@ export {
     Transaction,
 
     ContractEntry,
-    BasicEntry
+    BasicEntry,
+
+    ERROR,
+    LOG
 
 };

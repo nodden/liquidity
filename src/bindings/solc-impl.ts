@@ -3,6 +3,7 @@ import * as pathUtil from 'path';
 
 import Contract from "../types/contract";
 import {ContractEntry, BasicEntry, URLEntry, InlineContractEntry} from "../types/contract-entry";
+import { ERROR } from "../base/liquidity";
 
 const solc = require('solc');
 
@@ -35,7 +36,7 @@ export async function getContent(path: string): Promise<Contract> {
         ? fullPathContents[fullPathContents.length - 1]
         // If it somehow comes out as undefined, we will return the entire path.
         : path;
-    return {contractName: contractName, codeContents: finalContent.join(" ")};
+    return { contractName: contractName, codeContents: finalContent.join(" ") };
 }
 
 /**
@@ -85,7 +86,7 @@ function createSolidityInput(contract: Contract, settings?: any[]) {
             }
         }
     } else {
-        console.error("( ERROR ) \u26D4 ", " Missing either settings or contract location / url(s)!");
+        ERROR("( ERROR ) \u26D4 ", " Missing either settings or contract location / url(s)!");
     }
 }
 
