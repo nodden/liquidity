@@ -1,4 +1,4 @@
-import {Contract, getContent} from '../src';
+import { Contract, getContent } from '../src';
 import { getCompiled } from "../src/bindings/solc-impl";
 
 test("Content", async () => {
