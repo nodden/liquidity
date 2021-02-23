@@ -1,6 +1,9 @@
 import liquidity from "./base/liquidity";
 import ServiceProvider from "./types/serviceprovider";
 
+import { ContractEntry, BasicEntry } from "./types/contract-entry";
+
+import Contract from "./types/contract";
 import { getContent } from "./bindings/solc-impl";
 
 import {
@@ -22,7 +25,7 @@ import { Goerli } from "./bindings/web3-impl";
 
 export {
     liquidity,
-    getContent,
+
     ServiceProvider,
     HttpNetwork,
     AuthCredentials,
@@ -30,10 +33,17 @@ export {
     WebsocketConfigBuilder,
     BASE_TIMEOUT_MS,
 
+    getContent,
+
+
     Goerli,
 
     Block,
+    Contract,
     TransactionStatus,
-    Transaction
+    Transaction,
+
+    ContractEntry,
+    BasicEntry
 
 };

@@ -1,10 +1,7 @@
-class Contract {
+export default interface Contract {
 
-    private path : string;
-
-    constructor(path: string) {
-        this.path = path;
-    }
-
+    contractName: string;
+    codeContents?: string;
+    contractUrls?: string[];
 
 }
