@@ -86,7 +86,7 @@ function createSolidityInput(contract : Contract, settings? : any[]) {
             }
         }
     } else {
-        ERROR("( ERROR ) \u26D4 ", " Missing either settings or contract location / url(s)!");
+        ERROR(" Missing either settings or contract location / url(s)!");
     }
 }
 
