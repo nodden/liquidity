@@ -3,8 +3,8 @@
  */
 interface Entry {
 
-    key: string;
-    value: any;
+    key : string;
+    value : any;
 
 }
 
@@ -15,15 +15,15 @@ interface Entry {
  */
 export class BasicEntry implements Entry {
 
-    key: string;
-    value: any;
+    key : string;
+    value : any;
 
-    constructor(key: string, value: any) {
+    constructor(key : string, value : any) {
         this.key = key;
         this.value = value;
     }
 
-    public get(): string {
+    public get() : string {
         return JSON.stringify(
             JSON.parse(
                 // { "key" : "val" }
@@ -37,10 +37,10 @@ export class BasicEntry implements Entry {
 
 export class URLEntry implements Entry {
 
-    key: string;
-    value: string[];
+    key : string;
+    value : string[];
 
-    constructor(value: string[]) {
+    constructor(value : string[]) {
         this.key = "urls";
         this.value = value;
     }
@@ -63,10 +63,10 @@ export class URLEntry implements Entry {
 
 export class ContractEntry implements Entry {
 
-    key: string;
-    value: any[];
+    key : string;
+    value : any[];
 
-    constructor(key: string, value: any[]) {
+    constructor(key : string, value : any[]) {
         this.key = key;
         this.value = value;
     }
@@ -88,10 +88,10 @@ export class ContractEntry implements Entry {
  */
 export class InlineContractEntry implements Entry {
 
-    key: string;
-    value: any;
+    key : string;
+    value : any;
 
-    constructor(key: string, value: any) {
+    constructor(key : string, value : any) {
         this.key = key;
         this.value = value;
     }
@@ -99,7 +99,7 @@ export class InlineContractEntry implements Entry {
     /**
      * Take handwritten JSON for dynamic inputs and return it back into a string.
      */
-    public get(): string {
+    public get() : string {
 
         return JSON.stringify(
             JSON.parse(

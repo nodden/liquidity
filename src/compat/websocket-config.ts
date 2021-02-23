@@ -15,32 +15,32 @@ export interface WebsocketConfig {
     /**
      * Timeout
      */
-    timeout?: number;
+    timeout? : number;
 
     /**
      * Headers
      */
-    headers?: HttpHeader[];
+    headers? : HttpHeader[];
 
     /**
      * Websocket client configuration options
      */
-    clientConfig?: {
-        keepalive: boolean,
-        keepaliveInterval: number,
-        maxReceivedFrameSize: number,
-        maxReceivedMessageSize: number
+    clientConfig? : {
+        keepalive : boolean,
+        keepaliveInterval : number,
+        maxReceivedFrameSize : number,
+        maxReceivedMessageSize : number
     };
 
     /**
      * Websocket reconnect options
      */
-    reconnect?: { auto: boolean, delay: number, maxAttempts: number, onTimeout: boolean };
+    reconnect? : { auto : boolean, delay : number, maxAttempts : number, onTimeout : boolean };
 
     /**
      * Http agent
      */
-    agent?: HttpAgent;
+    agent? : HttpAgent;
 
 }
 
@@ -53,42 +53,42 @@ export class WebsocketConfigBuilder {
      * Websocket url
      * @private
      */
-    private readonly url: string;
+    private readonly url : string;
 
     /**
      * Timeout for the websocket
      * @private
      */
-    private timeout: number;
+    private timeout : number;
 
     /**
      * Headers
      * @private
      */
-    private headers: HttpHeader[] = [];
+    private headers : HttpHeader[] = [];
 
     /**
      * Configuration for the websocket client
      * @private
      */
-    private clientConfig?: {
-        keepalive: boolean,
-        keepaliveInterval: number,
-        maxReceivedFrameSize: number,
-        maxReceivedMessageSize: number
+    private clientConfig? : {
+        keepalive : boolean,
+        keepaliveInterval : number,
+        maxReceivedFrameSize : number,
+        maxReceivedMessageSize : number
     };
 
     /**
      * Reconnect options
      * @private
      */
-    private reconnect?: { auto: boolean, delay: number, maxAttempts: number, onTimeout: boolean };
+    private reconnect? : { auto : boolean, delay : number, maxAttempts : number, onTimeout : boolean };
 
     /**
      * Http agent
      * @private
      */
-    private agent?: HttpAgent;
+    private agent? : HttpAgent;
 
     private conf? : WebsocketConfig;
 
@@ -98,7 +98,7 @@ export class WebsocketConfigBuilder {
      *
      * @param url url for the service
      */
-    constructor(url: string) {
+    constructor(url : string) {
         this.url = url;
         this.timeout = BASE_TIMEOUT_MS;
     }
@@ -108,7 +108,7 @@ export class WebsocketConfigBuilder {
      *
      * @param ms timeout
      */
-    public addTimeout(ms: number) : WebsocketConfigBuilder {
+    public addTimeout(ms : number) : WebsocketConfigBuilder {
         this.timeout = ms;
         return this;
     }
@@ -118,7 +118,7 @@ export class WebsocketConfigBuilder {
      *
      * @param headers headers to add
      */
-    public addHeaders(headers: HttpHeader) : WebsocketConfigBuilder {
+    public addHeaders(headers : HttpHeader) : WebsocketConfigBuilder {
         this.headers.push(headers);
         return this;
     }
@@ -128,12 +128,12 @@ export class WebsocketConfigBuilder {
      *
      * @param ac auth creds
      */
-    public addAuthCredentials(ac: AuthCredentials) : WebsocketConfigBuilder {
+    public addAuthCredentials(ac : AuthCredentials) : WebsocketConfigBuilder {
         this.addHeaders({ name: 'authorization', value: ac.username + ":" + ac.password });
         return this;
     }
 
-    public addAgent(agent: HttpAgent) : WebsocketConfigBuilder {
+    public addAgent(agent : HttpAgent) : WebsocketConfigBuilder {
         this.agent = agent;
         return this;
     }

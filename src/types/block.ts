@@ -6,36 +6,36 @@ export default interface Block {
     /**
      * Block height
      */
-    height: number;
+    height : number;
 
     /**
      * Amount of transactions in the block
      */
-    transactions: number;
+    transactions : number;
 
     /**
      * Hash that mined the block
      */
-    minedBy: string;
+    minedBy : string;
 
     /**
      * Gas used for the block
      */
-    gasUsed: number;
+    gasUsed : number;
 
     /**
      * Limit of gas for the block
      */
-    gasLimit: number;
+    gasLimit : number;
 
     /**
      * Block size (bytes)
      */
-    sizeInBytes: number;
+    sizeInBytes : number;
 
     /**
      * Extra data from the block
      */
-    extraData: string;
+    extraData : string;
 
 }

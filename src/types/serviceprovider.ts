@@ -1,5 +1,6 @@
 import { WebsocketConfig } from '../compat/websocket-config';
 import Web3 from 'web3';
+
 const Web3WsProvider = require('web3-providers-ws');
 
 /**
@@ -7,8 +8,8 @@ const Web3WsProvider = require('web3-providers-ws');
  */
 export interface AuthCredentials {
 
-    username: string;
-    password: string;
+    username : string;
+    password : string;
 
 }
 
@@ -16,9 +17,9 @@ export interface AuthCredentials {
  * Requirements for an HttpNetwork for `organization`
  */
 export interface HttpNetwork {
-    name: string;
-    httpUrl: string;
-    chainId: number;
+    name : string;
+    httpUrl : string;
+    chainId : number;
 }
 
 
@@ -30,12 +31,12 @@ export default class ServiceProvider {
     /**
      * Provider identifier
      */
-    public readonly identifier: string;
+    public readonly identifier : string;
 
     /**
      * Http url for a 'network'
      */
-    public readonly httpUrl: string;
+    public readonly httpUrl : string;
 
     /**
      * Configurations for the websocket
@@ -49,7 +50,7 @@ export default class ServiceProvider {
      * @param httpUrl url for the service
      * @param config configurations for the websocket to the service
      */
-    constructor(identifier: string, httpUrl: string, config? : WebsocketConfig) {
+    constructor(identifier : string, httpUrl : string, config? : WebsocketConfig) {
         this.identifier = identifier;
         this.httpUrl = httpUrl;
         this.config = config;

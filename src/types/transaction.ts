@@ -9,52 +9,52 @@ export default interface Transaction {
     /**
      * Block that the transaction belongs to
      */
-    block: Block;
+    block : Block;
 
     /**
      * Status of the transaction
      */
-    status: TransactionStatus;
+    status : TransactionStatus;
 
     /**
      * Hash of the transaction
      */
-    hash: string;
+    hash : string;
 
     /**
      * From hash
      */
-    fromHash: string;
+    fromHash : string;
 
     /**
      * To hash
      */
-    toHash: string;
+    toHash : string;
 
     /**
      * Value of the transaction (in eth)
      */
-    ethValue: number;
+    ethValue : number;
 
     /**
      * Price of the gas for the transaction in eth)
      */
-    gasPrice: number;
+    gasPrice : number;
 
     /**
      * Limit of the gas for the transaction (in eth)
      */
-    gasLimit: number;
+    gasLimit : number;
 
     /**
      * Gas used in the transaction (eth)
      */
-    gasUsed: number;
+    gasUsed : number;
 
     /**
      * Nonce
      */
-    nonce: number;
+    nonce : number;
 
 }
 

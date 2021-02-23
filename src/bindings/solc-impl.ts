@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as pathUtil from 'path';
 
 import Contract from "../types/contract";
-import {ContractEntry, BasicEntry, URLEntry, InlineContractEntry} from "../types/contract-entry";
+import { ContractEntry, BasicEntry, URLEntry, InlineContractEntry } from "../types/contract-entry";
 import { ERROR } from "../base/liquidity";
 
 const solc = require('solc');
@@ -12,8 +12,8 @@ const solc = require('solc');
  *
  * @param path full path of the contract
  */
-export async function getContent(path: string): Promise<Contract> {
-    let finalContent: string[] = [];
+export async function getContent(path : string) : Promise<Contract> {
+    let finalContent : string[] = [];
     let licenseCount = 0;
     const lines = fs.readFileSync(pathUtil.resolve(path), 'UTF-8').split(/\r?\n/);
 
@@ -21,7 +21,7 @@ export async function getContent(path: string): Promise<Contract> {
         // Restrict comments and blank lines.
         if (line.startsWith("//") && line.indexOf("SPDX") != -1 && licenseCount == 0) {
             finalContent.push(line + "\\n");
-            licenseCount ++;
+            licenseCount++;
         }
         if (!line.startsWith("//") && line.indexOf("\n") == -1 && line.indexOf("\r") == -1 && line.length > 0) {
             finalContent.push(line);
@@ -48,10 +48,10 @@ export async function getContent(path: string): Promise<Contract> {
  * For more on settings and compilation, see below:
  * @link https://docs.soliditylang.org/en/v0.5.0/using-the-compiler.html#compiler-input-and-output-json-description
  */
-function createSolidityInput(contract: Contract, settings?: any[]) {
+function createSolidityInput(contract : Contract, settings? : any[]) {
 
     if (contract.codeContents !== undefined && settings === undefined) {
-        let sources: JSON = JSON.parse((new InlineContractEntry(contract.contractName, contract.codeContents)).get());
+        let sources : JSON = JSON.parse((new InlineContractEntry(contract.contractName, contract.codeContents)).get());
 
         return {
             language: 'Solidity',
@@ -59,7 +59,7 @@ function createSolidityInput(contract: Contract, settings?: any[]) {
             settings: {
                 outputSelection: {
                     '*': {
-                        '*': ['*']
+                        '*': [ '*' ]
                     }
                 }
             }
@@ -95,6 +95,6 @@ function createSolidityInput(contract: Contract, settings?: any[]) {
  *
  * @param contract contract to compile
  */
-export function getCompiled(contract: Contract) {
+export function getCompiled(contract : Contract) {
     return solc.compile(JSON.stringify(createSolidityInput(contract)));
 }
