@@ -11,40 +11,31 @@ interface ity {
 
     web3() : Web3;
 
-    connect() : Promise< { connection : NetworkConnection } >;
+    connect() : void; //Promise< { connection : NetworkConnection } >;
 
-    connect(network: Network) : Promise< { connection : NetworkConnection } >;
+    connect(network: Network) : void; //Promise< { connection : NetworkConnection } >;
 
-    query(hash: String, network: Network) : Promise< { info : Transaction }>;
+    query(hash: String, network: Network) : void; //Promise< { info : Transaction }>;
 
-    deploy(contract: any, network: Network);
+    deploy(contract: any, network: Network) : void;
 
 }
 
 class LiquidityImpl implements ity {
 
-    public readonly providers : ServiceProvider[];
+    public readonly providers : ServiceProvider[] = [];
 
     private constructor() { }
 
+    query(hash: String, network: Network): void {
+        throw new Error("Method not implemented.");
+    }
+    deploy(contract: any, network: Network): void {
+        throw new Error("Method not implemented.");
+    }
+
     static liquidity : LiquidityImpl = new LiquidityImpl();
 
-    // todo all
-    connect(): Promise<{ connection: NetworkConnection }>;
-
-    connect(network: Network): Promise<{ connection: NetworkConnection }>;
-
-    connect(network?: Network): Promise<{ connection: NetworkConnection }> {
-        return Promise.resolve({ connection: undefined });
-    }
-
-    query(hash: String, network: Network): Promise<{ info: Transaction }> {
-        return Promise.resolve({ info: undefined });
-    }
-
-    deploy(contract: any, network: Network) {
-        // todo first connect, then deploy
-    }
 
     getGoerli() : ServiceProvider {
         let goerli = this.providers.find(e => e.identifier === "goerli-test-net");
@@ -65,6 +56,11 @@ class LiquidityImpl implements ity {
         return this.providers[0] !== undefined
             ? new Web3(this.providers[0].provider())
             : this.getGoerli().provider();
+    }
+
+    connect(): void;
+    connect(network: Web3): void;
+    connect(network?: Web3): void {
     }
 
 }

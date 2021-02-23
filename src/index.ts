@@ -1,6 +1,8 @@
 import liquidity from "./base/liquidity";
 import ServiceProvider from "./types/serviceprovider";
 
+import { getContent } from "./bindings/solc-impl";
+
 import {
     HttpNetwork,
     AuthCredentials
@@ -20,7 +22,7 @@ import { Goerli } from "./bindings/web3-impl";
 
 export {
     liquidity,
-
+    getContent,
     ServiceProvider,
     HttpNetwork,
     AuthCredentials,

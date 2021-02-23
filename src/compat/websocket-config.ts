@@ -65,13 +65,13 @@ export class WebsocketConfigBuilder {
      * Headers
      * @private
      */
-    private headers: HttpHeader[];
+    private headers: HttpHeader[] = [];
 
     /**
      * Configuration for the websocket client
      * @private
      */
-    private clientConfig: {
+    private clientConfig?: {
         keepalive: boolean,
         keepaliveInterval: number,
         maxReceivedFrameSize: number,
@@ -82,15 +82,15 @@ export class WebsocketConfigBuilder {
      * Reconnect options
      * @private
      */
-    private reconnect: { auto: boolean, delay: number, maxAttempts: number, onTimeout: boolean };
+    private reconnect?: { auto: boolean, delay: number, maxAttempts: number, onTimeout: boolean };
 
     /**
      * Http agent
      * @private
      */
-    private agent: HttpAgent;
+    private agent?: HttpAgent;
 
-    private conf : WebsocketConfig;
+    private conf? : WebsocketConfig;
 
 
     /**

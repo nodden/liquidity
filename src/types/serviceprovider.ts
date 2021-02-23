@@ -1,6 +1,5 @@
-import Web3 from "web3";
 import { WebsocketConfig } from '../compat/websocket-config';
-
+import Web3 from 'web3';
 const Web3WsProvider = require('web3-providers-ws');
 
 /**
@@ -41,7 +40,7 @@ export default class ServiceProvider {
     /**
      * Configurations for the websocket
      */
-    public config : WebsocketConfig;
+    public config? : WebsocketConfig;
 
     /**
      * Create a service provider
