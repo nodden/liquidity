@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as pathUtil from 'path';
 
 import Contract from "../types/contract";
-import { ContractEntry, BasicEntry, URLEntry, InlineContractEntry } from "../types/contract-entry";
+import { ContractEntry, URLEntry, InlineContractEntry } from "../types/contract-entry";
 import { ERROR } from "../base/liquidity";
 
 const solc = require('solc');
