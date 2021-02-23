@@ -12,7 +12,7 @@ const solc = require('solc');
  *
  * @param path full path of the contract
  */
-export async function getContent(path : string) : Promise<Contract> {
+export function getContent(path : string) : Contract {
     let finalContent : string[] = [];
     let licenseCount = 0;
     const lines = fs.readFileSync(pathUtil.resolve(path), 'UTF-8').split(/\r?\n/);
