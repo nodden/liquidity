@@ -21,7 +21,7 @@ export class CompiledContract implements Contract {
         this.contractUrls = contractUrls;
     }
 
-    static from(contractName: string, compiledContents: string, contractUrls?: string[]) : CompiledContract | undefined{
+    static from(contractName: string, compiledContents: string, contractUrls?: string[]) : CompiledContract | undefined {
         if (validateJSON(compiledContents)) {
             return new CompiledContract(contractName, compiledContents, contractUrls);
         } else {
