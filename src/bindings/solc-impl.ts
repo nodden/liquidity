@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import * as pathUtil from 'path';
 
 import Contract from "../types/contract";
+import { CompiledContract } from "../types/contract";
 import { ContractEntry, URLEntry, InlineContractEntry } from "../types/contract-entry";
 import { ERROR } from "../base/liquidity";
 
@@ -95,6 +96,8 @@ function createSolidityInput(contract : Contract, settings? : any[]) {
  *
  * @param contract contract to compile
  */
-export function getCompiled(contract : Contract) {
-    return solc.compile(JSON.stringify(createSolidityInput(contract)));
+export function getCompiled(contract : Contract) : CompiledContract | undefined {
+    return CompiledContract.from(contract.contractName,
+        solc.compile(JSON.stringify(createSolidityInput(contract))),
+        contract.contractUrls);
 }

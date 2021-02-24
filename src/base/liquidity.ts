@@ -4,6 +4,7 @@ import Network from "web3";
 import ServiceProvider from "../types/serviceprovider";
 import Web3 from "web3";
 import { Goerli } from "../index";
+import Contract, { CompiledContract } from "../types/contract";
 
 export const ERROR = function (message? : any, ...optionalParams : any[]) {
     console.error("( ERROR ) \u26D4 ", message, optionalParams);
@@ -24,7 +25,7 @@ interface ity {
 
     query(hash : String, network : Network) : void; //Promise< { info : Transaction }>;
 
-    deploy(contract : any, network : Network) : void;
+    deploy(contract : Contract, network : Network) : any;
 
 }
 
@@ -32,15 +33,14 @@ class LiquidityImpl implements ity {
 
     public readonly providers : ServiceProvider[] = [];
 
-    private constructor() {
-    }
+    private constructor() { }
 
     query(hash : String, network : Network) : void {
         throw new Error("Method not implemented.");
     }
 
-    deploy(contract : any, network : Network) : void {
-        throw new Error("Method not implemented.");
+    deploy(contract : CompiledContract, network : Network) {
+        // TODO
     }
 
     static liquidity : LiquidityImpl = new LiquidityImpl();
