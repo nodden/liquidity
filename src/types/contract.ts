@@ -18,7 +18,7 @@ export class CompiledContract implements Contract {
     private constructor(contractName: string, codeContents: string, contractUrls?: string[]) {
         this.contractName = contractName;
         this.codeContents = codeContents;
-        this.contractUrls = contractUrls;
+        if (contractUrls !== undefined) this.contractUrls = contractUrls;
     }
 
     static from(contractName: string, compiledContents: string, contractUrls?: string[]) : CompiledContract | undefined {

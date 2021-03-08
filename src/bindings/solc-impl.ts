@@ -16,15 +16,14 @@ const solc = require('solc');
 export function getContent(path : string) : Contract {
     let finalContent : string[] = [];
     let licenseCount = 0;
-    const lines = fs.readFileSync(pathUtil.resolve(path), 'UTF-8').split(/\r?\n/);
+    const lines : string[] = fs.readFileSync(pathUtil.resolve(path), 'UTF-8').split(/\r?\n/);
 
     lines.forEach(line => {
         // Restrict comments and blank lines.
         if (line.startsWith("//") && line.indexOf("SPDX") != -1 && licenseCount == 0) {
             finalContent.push(line + "\\n");
             licenseCount++;
-        }
-        if (!line.startsWith("//") && line.indexOf("\n") == -1 && line.indexOf("\r") == -1 && line.length > 0) {
+        } else if (!line.startsWith("//") && line.length > 0) {
             finalContent.push(line);
         }
     });
