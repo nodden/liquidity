@@ -22,7 +22,7 @@ import Block from "./types/block";
 import Transaction from "./types/transaction";
 import { TransactionStatus } from "./types/transaction-status";
 
-import { Goerli } from "./bindings/web3-impl";
+import { GoerliInfura } from "./bindings/web3-impl";
 
 export {
     liquidity,
@@ -37,7 +37,7 @@ export {
     getContent,
 
 
-    Goerli,
+    GoerliInfura,
 
     Block,
     Contract,

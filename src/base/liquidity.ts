@@ -3,7 +3,7 @@ import Transaction from "../types/transaction";
 import Network from "web3";
 import ServiceProvider from "../types/serviceprovider";
 import Web3 from "web3";
-import { Goerli } from "../index";
+import { GoerliInfura } from "../index";
 import Contract, { CompiledContract } from "../types/contract";
 
 export const ERROR = function (message? : any, ...optionalParams : any[]) {
@@ -51,7 +51,7 @@ class LiquidityImpl implements ity {
         if (goerli !== undefined) {
             return goerli.provider();
         } else {
-            goerli = new ServiceProvider("goerli-test-net", Goerli.httpUrl);
+            goerli = new ServiceProvider("goerli-test-net", GoerliInfura.httpUrl);
             this.providers.push(goerli);
             return goerli;
         }
